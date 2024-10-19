@@ -1,4 +1,4 @@
-# Analyzer Assignment for Roc8
+# Interactive Data Visualization Dashboard
 
 ## Features Overview
 
