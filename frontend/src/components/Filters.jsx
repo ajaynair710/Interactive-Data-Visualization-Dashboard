@@ -9,6 +9,8 @@ import {
   FaRedo,
   FaShareAlt,
 } from "react-icons/fa";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Filter = () => {
   const {
@@ -190,41 +192,36 @@ const Filter = () => {
 
         {/* Start Date Selector */}
         <div className="mb-4">
-          <label className=" text-sm font-semibold text-gray-800 mb-2 flex items-center">
-            <FaCalendarAlt className="mr-2 text-gray-500" /> Start Date:
-          </label>
-          <select
-            value={startDate}
-            onChange={handleStartDateChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
-          >
-            <option value="">Select Start Date</option>
-            {dates.map((date) => (
-              <option key={date} value={date}>
-                {date}
-              </option>
-            ))}
-          </select>
-        </div>
+        <label className=" text-sm font-semibold text-gray-800 mb-2 flex items-center">
+          <FaCalendarAlt className="mr-2 text-gray-500" /> Start Date:
+        </label>
+        <DatePicker
+          selected={startDate ? new Date(startDate) : null}
+          onChange={(date) => handleStartDateChange(date)}
+          selectsStart
+          startDate={startDate ? new Date(startDate) : null}
+          endDate={endDate ? new Date(endDate) : null}
+          maxDate={new Date()}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
 
         {/* End Date Selector */}
         <div className="mb-4">
-          <label className=" text-sm font-semibold text-gray-800 mb-2 flex items-center">
-            <FaCalendarAlt className="mr-2 text-gray-500" /> End Date:
-          </label>
-          <select
-            value={endDate}
-            onChange={handleEndDateChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
-          >
-            <option value="">Select End Date</option>
-            {filteredEndDates.map((date) => (
-              <option key={date} value={date}>
-                {date}
-              </option>
-            ))}
-          </select>
-        </div>
+        <label className=" text-sm font-semibold text-gray-800 mb-2 flex items-center">
+          <FaCalendarAlt className="mr-2 text-gray-500" /> End Date:
+        </label>
+        <DatePicker
+          selected={endDate ? new Date(endDate) : null}
+          onChange={(date) => handleEndDateChange(date)}
+          selectsEnd
+          startDate={startDate ? new Date(startDate) : null}
+          endDate={endDate ? new Date(endDate) : null}
+          minDate={startDate ? new Date(startDate) : null}
+          maxDate={new Date()}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
       </div>
 
       {/* Action Buttons */}
