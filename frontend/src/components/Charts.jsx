@@ -152,58 +152,59 @@ const GraphComponent = () => {
         </div>
 
         {/* Line Chart Section */}
-        {lineChartData.labels && selectedCategory && (
-          <div className="w-full lg:w-1/2">
-            <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-extrabold text-gray-800 mb-6 tracking-wide">
-              Line Chart:{" "}
-              <span className="text-green-600">
-                Time Trend for {selectedCategory}
-              </span>
-            </h2>
+        {lineChartData?.datasets?.length > 0 && selectedCategory && (
+  <div className="w-full lg:w-1/2">
+    <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-extrabold text-gray-800 mb-6 tracking-wide">
+      Line Chart:{" "}
+      <span className="text-green-600">
+        Time Trend for {selectedCategory}
+      </span>
+    </h2>
 
-            <div className="h-64 md:h-80 lg:h-96">
-              <Line
-                data={lineChartData}
-                options={{
-                  responsive: true,
-                  plugins: {
-                    zoom: {
-                      pan: {
-                        enabled: true,
-                        mode: "x",
-                      },
-                      zoom: {
-                        enabled: true,
-                        mode: "x",
-                      },
-                    },
-                  },
-                  scales: {
-                    x: {
-                      grid: {
-                        display: false, // Remove vertical grid lines
-                      },
-                      border: {
-                        display: false, // Remove outer border for x-axis
-                      },
-                      ticks: {
-                        maxTicksLimit: 10, // Limit number of x-axis ticks for small screens
-                      },
-                    },
-                    y: {
-                      grid: {
-                        display: true, // Keep horizontal grid lines (optional)
-                      },
-                      border: {
-                        display: false, // Remove outer border for y-axis
-                      },
-                    },
-                  },
-                }}
-              />
-            </div>
-          </div>
-        )}
+    <div className="h-64 md:h-80 lg:h-96">
+      <Line
+        data={lineChartData}
+        options={{
+          responsive: true,
+          plugins: {
+            zoom: {
+              pan: {
+                enabled: true,
+                mode: "x",
+              },
+              zoom: {
+                enabled: true,
+                mode: "x",
+              },
+            },
+          },
+          scales: {
+            x: {
+              grid: {
+                display: false, // Remove vertical grid lines
+              },
+              border: {
+                display: false, // Remove outer border for x-axis
+              },
+              ticks: {
+                maxTicksLimit: 10, // Limit number of x-axis ticks for small screens
+              },
+            },
+            y: {
+              grid: {
+                display: true, // Keep horizontal grid lines (optional)
+              },
+              border: {
+                display: false, // Remove outer border for y-axis
+              },
+            },
+          },
+        }}
+      />
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );
