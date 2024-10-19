@@ -57,7 +57,7 @@ This project is an Analyzer tool that enables users to visualize data using bar 
 
 1. **Clone the frontend repository**:
    ```bash
-   git clone https://github.com/abdulrcodes/Analyzer-Roc8-Assigment.git
+   git clone [https://github.com/ajaynair710/Interactive-Data-Visualization-Dashboard](https://github.com/ajaynair710/Interactive-Data-Visualization-Dashboard).git
    cd frontend
    ```
 
